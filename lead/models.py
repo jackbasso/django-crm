@@ -26,6 +26,7 @@ class Lead(models.Model):
     priority = models.CharField(max_length=10, choices=CHOICES_PRIORITY, default=MEDIUM)
     status = models.CharField(max_length=10, choices=CHOICES_STATUS, default=NEW)
     name = models.CharField(max_length=255)
+    email = models.EmailField(null=True)
     description = models.TextField(blank=True, null=True)
     created_by = models.ForeignKey(User, related_name='leads', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
